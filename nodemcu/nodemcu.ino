@@ -6,8 +6,8 @@
 
 SoftwareSerial nodeMCU(D1,D2);
 
-const char* ssid = "Ssstttt";
-const char* password = "buatapa?";
+const char* ssid = "(put ur wifi id here)";
+const char* password = "(put ur wifi pass here)";
 const char* mqtt_server = "ee.unsoed.ac.id";
 
 
