@@ -1,0 +1,53 @@
+function doGet(e) {
+  Logger.log(JSON.stringify(e));
+  var result = 'Ok';
+  if (e.parameter == 'undefined'){
+    result = 'No Parameter';
+  }
+  else{
+    var sheet_id = '1v9eflYneFTZiJDUAeU6DKrIjJfN2ycyIhiPkn5Jx17o';
+    var sheet = SpreadsheetApp.openById(sheet_id).getActiveSheet();
+    var newRow = sheet.getLastRow() + 1;
+    var rowData = [];
+    var Curr_Date = new Date();
+    rowData[0] = Curr_Date;
+    var Curr_Time = Utilities.formatDate(Curr_Date, "Asia/Jakarta", 'HH:mm:ss');
+    rowData[1] = Curr_Time;
+    for (var param in e.parameter){
+      Logger.log('In for loop, param=' + param);
+      var value = stripQuotes(e.parameter[param]);
+      Logger.log(param + ':' + e.parameter[param]);
+      switch (param){
+        case 'product':
+        rowData[2] = value; //data counter
+        result = 'Counter written on column C';
+        break;
+        case 'status':
+        rowData[3] = value;
+        result += 'Status written on Column D';
+        break;
+        case 'response':
+        rowData[4] = value;
+        result += 'Respon written on Column E';
+        break;
+        case 'handling':
+        rowData[5] = value;
+        result += 'Handling written on Column F';
+        break;
+        case 'total':
+        rowData[6] = value;
+        result += 'Total written on Column G';
+        break;
+        default:
+        result = "unsuppoorted parameter";
+      }
+    }
+    Logger.log(JSON.stringify(rowData));
+    var newRange = sheet.getRange(newRow, 1, 1, rowData.length);
+    newRange.setValues([rowData]);
+  }
+  return ContentService.createTextOutput(result);
+}
+function stripQuotes(value){
+  return value.replace(/^["']|['""]$/g, "");
+} 
