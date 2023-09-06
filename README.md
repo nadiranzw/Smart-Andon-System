@@ -1,7 +1,8 @@
 # Smart Andon System
 This project was made in PT. Wizurai Cipta Pratama by:
 - Adhian Firdausi Susanto as Hardware Electrical ➡️
-  [LinkedIn](https://www.linkedin.com/in/adhian-f-60a5aa112/)
+  [LinkedIn](https://www.linkedin.com/in/adhian-f-60a5aa112/) 
+  [Github](https://github.com/adhianfs)
 - Nadira Nazwa Azzahra as Hardware Programming ➡️
   [LinkedIn](https://www.linkedin.com/in/nadira-nazwa-azzahra/)
   [Github](https://github.com/nadiranzw)
